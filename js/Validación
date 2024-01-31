@@ -1,0 +1,24 @@
+
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        // Obtén los valores de los campos
+        const nombre = form.querySelector('input[name="nombre"]').value.trim();
+        const apellido = form.querySelector('input[name="apellido"]').value.trim();
+        const correo = form.querySelector('input[name="correo"]').value.trim();
+        const asunto = form.querySelector('textarea[name="asunto"]').value.trim();
+        const comentario = form.querySelector('textarea[name="comentario"]').value.trim();
+
+        // Validación: Verifica que los campos no estén vacíos
+        if (nombre === '' || apellido === '' || correo === '' || asunto === '' || comentario === '') {
+            alert('Por favor, completa todos los campos del formulario.');
+            return;
+        }
+
+        // Envía el formulario si la validación es exitosa
+        form.submit();
+    });
+});
